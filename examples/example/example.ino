@@ -31,18 +31,17 @@ void buttonOnHandler(int buttonNumber) {
 }
 
 void buttonClickedHandler(int buttonNumber) {
-    b.allLedsOn(20,20,0);
+    Serial.print("Button clicked: ");
+    Serial.println(buttonNumber);
     
     Particle.publish("buttonClicked", buttonNumber);
-    Serial.print("Button Clicked: ");
-    Serial.println(buttonNumber);
-    delay(500);
 }
 
 void allButtonsClickedHandler() {
-    b.allLedsOn(20,0,0);
+    Serial.println("All buttons clicked");
+
+    b.allLedsOn(20,20,0);
+    delay(500);
     
     Particle.publish("allButtonsClicked");
-    Serial.print("All Buttons Clicked");
-    delay(500);
 }
